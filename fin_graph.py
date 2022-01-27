@@ -39,22 +39,18 @@ timeSetData = fin_func.timelineSet(organStock, organExchange)
 # dimension
 # organ[stock(market)][stock column][data]
 
-# kospiDate = organStock[0][0]
-# kospiClose = organStock[0][4]
-# kosdaqDate = organStock[1][0]
-# kosdaqClose = organStock[1][4]
-# nasdaqDate = organStock[2][0]
-# nasdaqClose = organStock[2][4]
-# djiaDate = organStock[3][0]
-# djiaClose = organStock[3][4]
-# spDate = organStock[4][0]
-# spClose = organStock[4][4]
+timeline = organStock[4][0]
+kospiClose = timeSetData[0]
+kosdaqClose = timeSetData[1]
+nasdaqClose = timeSetData[2]
+djiaClose = timeSetData[3]
+spClose = timeSetData[4]
 
-# # 그래프
-# plt.figure(figsize=(12, 7))
-# plt.plot(kospiDate, kospiClose)
-# plt.plot(kosdaqDate, kosdaqClose)
-# plt.plot(nasdaqDate, nasdaqClose)
-# plt.plot(djiaDate, djiaClose)
-# plt.plot(spDate, spClose)
-# plt.show()
+# 그래프
+plt.figure(figsize=(12, 7))
+plt.scatter(timeline, kospiClose, s=1)
+plt.scatter(timeline, kosdaqClose, s=1)
+plt.scatter(timeline, nasdaqClose, s=1)
+plt.scatter(timeline, djiaClose, s=1)
+plt.scatter(timeline, spClose, s=1)
+plt.show()

@@ -140,11 +140,38 @@ def timelineSet(organStock, organExchange):
     print("stocks date ??", len(stocks[0]))
 
     for time in timeline:
-        # kospi에 기록이 있는 값만 (2010 ~)
+        # kospi에 기록이 있는 값만
         if time in organStock[0][0]:
             stocks[0][organStock[4][0].index(time)] = organStock[0][4][organStock[0][0].index(time)]
             print("time : ", time, "\tindex : ", organStock[0][0].index(time), "\tvalue : ", organStock[0][4][organStock[0][0].index(time)])
-        else:
-            print("time : ", time)
-
+        # kosdaq 기록이 있는 값만
+        if time in organStock[1][0]:
+            stocks[1][organStock[4][0].index(time)] = organStock[1][4][organStock[1][0].index(time)]
+            print("time : ", time, "\tindex : ", organStock[1][0].index(time), "\tvalue : ", organStock[1][4][organStock[1][0].index(time)])
+        # nasdaq 기록이 있는 값만
+        if time in organStock[2][0]:
+            stocks[2][organStock[4][0].index(time)] = organStock[2][4][organStock[2][0].index(time)]
+            print("time : ", time, "\tindex : ", organStock[2][0].index(time), "\tvalue : ", organStock[2][4][organStock[2][0].index(time)])
+        # djia 기록이 있는 값만
+        if time in organStock[3][0]:
+            stocks[3][organStock[4][0].index(time)] = organStock[3][4][organStock[3][0].index(time)]
+            print("time : ", time, "\tindex : ", organStock[3][0].index(time), "\tvalue : ", organStock[3][4][organStock[3][0].index(time)])
+        # sp 기록이 있는 값만
+        if time in organStock[4][0]:
+            stocks[4][organStock[4][0].index(time)] = organStock[4][4][organStock[4][0].index(time)]
+            print("time : ", time, "\tindex : ", organStock[4][0].index(time), "\tvalue : ", organStock[4][4][organStock[4][0].index(time)])
+    
     print("kospi ?? : ", stocks[0])
+    print("kosdaq ?? : ", stocks[1])
+    print("nasdaq ?? : ", stocks[2])
+    print("djia ?? : ", stocks[3])
+    print("sp ?? : ", stocks[4])
+
+    # 0 값 변경
+    for market in range(0, len(stocks)):
+        for ind in range(0, len(stocks[market])):
+            if stocks[market][ind] == 0:
+                stocks[market][ind] = None
+
+    # close 정보 리턴
+    return stocks
