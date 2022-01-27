@@ -121,3 +121,30 @@ def exchangeDataOrgan(exchangeData):
     # 환율 데이터 리턴
     # Date[0] Exchange Rate[1]
     return data
+
+# 시간 좌표 설정
+def timelineSet(organStock, organExchange):
+    # 날짜 기준 배열 생성
+    timeline = organStock[4][0]
+
+    # stocks
+    # 코스피 [0], 코스닥 [1], 나스닥 [2], 다우지수 [3], 스탠다드 푸어스 [4], 환률(Korea - USA) [5]
+    stocks = []
+    for st in range(0, 6):
+        print("st : ", st)
+        stocks.append([])
+        for os in range(0, len(organStock[4][0])):
+            stocks[st].append(0)
+
+    print("stocks ??", len(stocks))
+    print("stocks date ??", len(stocks[0]))
+
+    for time in timeline:
+        # kospi에 기록이 있는 값만 (2010 ~)
+        if time in organStock[0][0]:
+            stocks[0][organStock[4][0].index(time)] = organStock[0][4][organStock[0][0].index(time)]
+            print("time : ", time, "\tindex : ", organStock[0][0].index(time), "\tvalue : ", organStock[0][4][organStock[0][0].index(time)])
+        else:
+            print("time : ", time)
+
+    print("kospi ?? : ", stocks[0])
