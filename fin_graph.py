@@ -28,7 +28,7 @@ stocks.append(sp)
 organStock = []
 organExchange = []
 for stock in stocks:
-    # 코스피 코스닥 코스닥 나스닥 다우지수 스탠다드
+    # 코스피 코스닥 나스닥 다우지수 스탠다드
     # Date Open High Low Close
     organStock.append(fin_func.stockDataOrgan(stock))
 organExchange.append(fin_func.exchangeDataOrgan(ku))
@@ -50,10 +50,11 @@ spClose = timeSetData[4]
 # plt.figure(figsize=(12, 7))
 plt.figure(figsize=(48, 30))
 # scatter, s=int
-plt.plot(timeline, kospiClose)
-plt.plot(timeline, kosdaqClose)
-plt.plot(timeline, nasdaqClose)
-plt.plot(timeline, djiaClose)
-plt.plot(timeline, spClose)
+plt.plot(timeline, kospiClose, label='kospi')
+plt.plot(timeline, kosdaqClose, label='kosdaq')
+plt.plot(timeline, nasdaqClose, label='nasdaq')
+plt.plot(timeline, djiaClose, label='djia')
+plt.plot(timeline, spClose, label='sp')
+plt.legend()
 plt.savefig('graph_close.png')
 # plt.show()
