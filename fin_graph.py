@@ -47,10 +47,13 @@ djiaClose = timeSetData[3]
 spClose = timeSetData[4]
 
 # 그래프
-plt.figure(figsize=(12, 7))
-plt.scatter(timeline, kospiClose, s=1)
-plt.scatter(timeline, kosdaqClose, s=1)
-plt.scatter(timeline, nasdaqClose, s=1)
-plt.scatter(timeline, djiaClose, s=1)
-plt.scatter(timeline, spClose, s=1)
-plt.show()
+# plt.figure(figsize=(12, 7))
+plt.figure(figsize=(48, 30))
+# scatter, s=int
+plt.plot(timeline, kospiClose)
+plt.plot(timeline, kosdaqClose)
+plt.plot(timeline, nasdaqClose)
+plt.plot(timeline, djiaClose)
+plt.plot(timeline, spClose)
+plt.savefig('graph_close.png')
+# plt.show()
