@@ -14,7 +14,7 @@ kosdaq = wb['data']['H':'L']     # 코스닥 [1]
 nasdaq = wb['data']['O':'S']     # 나스닥 [2]
 djia = wb['data']['V':'Z']       # 다우지수 [3]
 sp = wb['data']['AC':'AG']       # 스탠다드 푸어스 [4]
-ku = wb['data']['AL':'AM']       # 환률(Korea - USA) [5]
+ku = wb['data']['AL':'AM']       # 환율(Korea - USA) [5]
 
 # 시장
 stocks = []
@@ -45,6 +45,7 @@ kosdaqClose = timeSetData[1]
 nasdaqClose = timeSetData[2]
 djiaClose = timeSetData[3]
 spClose = timeSetData[4]
+kuClose = timeSetData[5]
 
 # 그래프
 # plt.figure(figsize=(12, 7))
@@ -55,6 +56,7 @@ plt.plot(timeline, kosdaqClose, label='kosdaq')
 plt.plot(timeline, nasdaqClose, label='nasdaq')
 plt.plot(timeline, djiaClose, label='djia')
 plt.plot(timeline, spClose, label='sp')
+plt.plot(timeline, kuClose, label='ku')
 plt.legend()
 plt.savefig('graph_close.png')
 # plt.show()
